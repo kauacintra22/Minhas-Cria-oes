@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Meu Portfólio</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>Ola me chamo Kaua Antonio tenho somente 15 anos e estou focado em evoluir na programaçao e virar um desenvolvidor web.</p>
+        </section>
+
+        <section id="projetos">
+            <h2>Meus Projetos</h2>
+            <div class="project">
+                <h3>Projeto 1</h3>
+                <p>Descrição do Projeto 1.</p>
+            </div>
+            <div class="project">
+                <h3>Projeto 2</h3>
+                <p>Descrição do Projeto 2.</p>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Nome" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Portfólio</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Estilos da seção de projetos */
+.project {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilos do formulário de contato */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos do rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}</style>
+<script>document.addEventListener('DOMContentLoaded', function () {  const links = document.querySelectorAll('nav ul li a');
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetElement.offsetTop - 50,
+                behavior: 'smooth'
+            });
+        });
+    }); const projects = document.querySelectorAll('.project');
+    projects.forEach(project => {
+        project.addEventListener('mouseenter', function () {
+            this.style.transform = 'rotate(5deg)';
+        });
+        project.addEventListener('mouseleave', function () {
+            this.style.transform = 'rotate(0deg)';
+        });
+    });const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const formDataJson = JSON.stringify(Object.fromEntries(formData));
+        console.log(formDataJson);</script>
